@@ -1,3 +1,4 @@
+import { IAreasService } from "../../services/areas/types";
 
 
 
@@ -11,6 +12,7 @@ export interface IComplaint{
 }
 
 export interface IFormComplaintsProps {
+    optionsAreas: IAreasService[];
     textBtn: string;
     handleSubmit: (complaint: any) => void;
 }

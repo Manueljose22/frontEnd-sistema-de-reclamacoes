@@ -9,12 +9,35 @@
     color: var(--color-primary) !important;
 }
 
+.text-dark{
+    color: var(--color-dark) !important; 
+}
+
+.text-secondary{
+    color: var(--color-secondary) !important;
+}
+.text-secondary-2{
+    color: #8888;
+}
+
 .bg-dark{
     background-color: var(--color-dark) !important;
 }
+.bg-dark-ligth{
+    background-color: var(--color-secondary) ;
+}
+
+.fsize-1{
+    font-size: .7rem;
+}
+.fsize-2{
+    font-size: .9rem;
+}
+
 
 h1{
     color: var(--color-primary);
+    text-transform: capitalize;
 }
 
 .bg-secondary{
@@ -25,16 +48,81 @@ p{
     color: #f2f2f2 !important;
 }
 
+/* Botões */
 .btn-primary{
     background-color: var(--color-primary) !important;
     color: var(--color-dark);
-    font-weight: 700 !important;
+    font-weight: 500 !important;
+    
 }
 
 .btn{
     border: none !important;
+    padding: .6rem !important;
 }
 
 .btn:hover{
     color: var(--color-dark) !important;
+}
+
+
+/* Links */
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    transition: all .42s ease-in-out !important;
+    color: #ddd !important;
+}
+
+ul{
+    list-style: none;
+}
+
+
+/* Color card message */
+
+.client{
+    border-left: 5px solid #fff;
+}
+.user{
+    border-left: 5px solid var(--color-primary);
+}
+
+
+.icon-color{
+    color: var(--color-primary)
+}
+
+
+/* Sidebar */
+
+.bg-link{
+    background-color: var(--color-secondary);
+    border-left: 3px solid var(--color-primary);
+    border-radius: .2rem;
+}
+
+.bg-light{
+    background-color: #ddddddcc  !important;
+}
+
+.card-1{
+    background-color: #ea6624b0;
+}
+.card-2{
+    background-color: #fa9600be;
+}
+.card-3{
+    background-color: #ffdac7cb;
+}
+.card-4{
+    background-color: #babd8ebe;
+}
+.card-5{
+    background-color: #7c690ac0;
+}
+.card-6{
+    background-color: #57A7E2;
 }

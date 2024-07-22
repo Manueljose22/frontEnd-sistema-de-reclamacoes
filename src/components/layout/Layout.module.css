@@ -1,0 +1,20 @@
+
+
+/* Side Bar */
+.w_0{
+    position: fixed;
+    left: -100% !important;
+    transition: all .45s ease-in-out;
+}
+
+.w_100{
+    width: 18rem !important;
+    transition: all .45s ease-in-out;
+
+}
+
+/* Header */
+.header{
+    width: 67.5rem;
+    height: 4.4rem;
+}

@@ -10,4 +10,5 @@ export interface IInputProps {
     required: boolean,
     placeholder?: string;
     value?: string;
+    multiple?: boolean;
 }

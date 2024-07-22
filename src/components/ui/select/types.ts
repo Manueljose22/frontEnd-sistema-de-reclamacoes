@@ -1,4 +1,5 @@
 import { ChangeEvent } from "react";
+import { IAreasService } from "../../../services/areas/types";
 
 
 
@@ -9,5 +10,5 @@ export interface ISelectProps {
     handleSelect: (e: ChangeEvent<HTMLSelectElement>) => void;
     required: boolean,
     value?: string;
-   options: string[];
+    options: IAreasService[];
 }

@@ -11,7 +11,7 @@ function Select({ handleSelect, label, required, name, value, options }: ISelect
             <select className="form-control mb-3" name={name} required={required} onChange={handleSelect}>
                 <option>Selecione a área</option>
                 {options.map((option) => (
-                    <option value={value || option} key={option}>{option}</option>
+                    <option value={value || option.area} key={option.id}>{option.area}</option>
                 ))}
             </select>
         </div>

@@ -8,10 +8,9 @@ import { SetAlertMessage } from "../../utils/messageAlert/SetAlertMessage";
 
 
 
-function FormComplaint({handleSubmit, textBtn}: IFormComplaintsProps) {
+function FormComplaint({handleSubmit, textBtn, optionsAreas}: IFormComplaintsProps) {
 
     const [complaint, setComplaint] = useState<IComplaint>({} as IComplaint);
-    const areaOptios: string[] = ['Ministerio da saúde', 'Transporte', 'Finanças'];
     const MAX_FILE_SIZE = 1 * 1024 * 1024;
    
 
@@ -57,9 +56,10 @@ function FormComplaint({handleSubmit, textBtn}: IFormComplaintsProps) {
         handleSubmit(formData);
     }
 
+   
     return (
-        <div className='container w-auto my-3' >
-            <form onSubmit={submit} >
+        <div className='container my-3' >
+            <form onSubmit={submit}>
                 <div className="row">
                     <div className="col-md-6">
                         <Input
@@ -76,7 +76,7 @@ function FormComplaint({handleSubmit, textBtn}: IFormComplaintsProps) {
                         <Input
                             label={'Nome'}
                             name={'name'}
-                            placeholder={'João Mateus.'}
+                            placeholder={'Seu nome completo'}
                             type={'text'}
                             required={false}
                             OnChange={handleOnChange}
@@ -90,7 +90,7 @@ function FormComplaint({handleSubmit, textBtn}: IFormComplaintsProps) {
                     required={true}
                     handleSelect={handleSelect}
                     name={'area'}
-                    options={areaOptios}
+                    options={optionsAreas}
                 />
                 <Textearea 
                     label={'Área de texto da reclamação *'}
@@ -100,11 +100,12 @@ function FormComplaint({handleSubmit, textBtn}: IFormComplaintsProps) {
                     value={complaint.message || ''}
                 />
                     <Input
-                    label={'Upload de ficheiros de reclamação'}
+                    label={'Upload de ficheiros de reclamação (PDF, JPG)'}
                     name={'attachments'}
                     type={'file'}
                     required={false}
                     OnChange={onFileChange}
+                    multiple={false}
                     
                   />
               
