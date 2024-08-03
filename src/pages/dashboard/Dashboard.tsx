@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import { Header } from "../../components/layout/Header";
 import { SideBar } from "../../components/layout/SideBar";
 import { useState } from "react";
+import styles from './Dashboard.module.css';
 
 
 
@@ -16,9 +17,10 @@ function Dashboard() {
     }
 
     return (
-        <main className=" d-flex bg-light">
+        <main className=" d-flex">
             <SideBar isOpen={isOpen} />
-            <div className="d-flex flex-column" >
+
+            <div className={`${styles.main}`} >
                 <Header hideSidebar={hideSidebar} />
 
                 <section className="text-info p-4">

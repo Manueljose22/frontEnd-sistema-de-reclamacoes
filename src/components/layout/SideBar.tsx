@@ -16,9 +16,9 @@ function SideBar({ isOpen }: ISideBarProps) {
     }
     
     return (
-        <aside className={`${styles.aside} ${isOpen ? styles.w_0 : styles.w_100 } d-flex flex-column py-4  align-self-start  bg-dark  vh-100 text-white`}>
+        <aside className={`${styles.aside} ${isOpen ? styles.closed : styles.open } d-flex flex-column py-4  align-self-start  bg-dark  vh-100 text-white`}>
             <div className="hearder text-center">
-                <h1 className="fs-4 ">System of Complaints</h1>
+                <h1 className="fs-5 ">Sistema de Reclamações</h1>
                 <hr />
             </div>
             <nav className="text-start">

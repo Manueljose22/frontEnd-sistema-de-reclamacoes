@@ -1,0 +1,12 @@
+.wapper{
+    display: flex;
+    align-items: stretch;
+}
+
+.main{
+    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+
+}

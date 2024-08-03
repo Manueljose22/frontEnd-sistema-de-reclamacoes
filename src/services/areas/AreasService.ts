@@ -1,5 +1,5 @@
 import { Api } from "../../utils/api/ApiConfig";
-import { IArea, IAreasService } from './types';
+import { IAreaPost, IAreasService } from './types';
 
 
 
@@ -13,9 +13,10 @@ const getAll = async (): Promise<IAreasService[]> => {
     }
 }
 
-const create = async ({ area }: IArea): Promise<IArea> => {
+const create = async (dataSave: IAreaPost): Promise<IAreasService> => {
+   
     try {
-        const { data } = await Api.post<IArea>('/areas/create', area)
+        const { data } = await Api.post<IAreasService>('/areas/create', dataSave )
         return data;
     } catch (error: any) {
         throw new Error(error.response.data.message);

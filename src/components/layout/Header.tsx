@@ -8,7 +8,7 @@ import { IHeaderProps } from './interfaces';
 function Header({ hideSidebar }: IHeaderProps) {
 
   return (
-    <header className={`${styles.header} container-fluid bg-secondary p-4 text-white d-flex justify-content-between`}>
+    <header className={`${styles.header} bg-secondary px-4 py-3 text-white d-flex justify-content-between`}>
       <div className="container-btn">
         <button onClick={hideSidebar}><BiMenu className='fs-3' /></button>
       </div>

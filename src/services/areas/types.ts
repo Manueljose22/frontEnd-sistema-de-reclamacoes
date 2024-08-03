@@ -9,7 +9,8 @@ export interface IAreasService {
     DeletedAt: Date | null;
 }
 
-export interface IArea{
-    area: string;
+export interface IAreaPost{
+    area: string
+    
 }
 

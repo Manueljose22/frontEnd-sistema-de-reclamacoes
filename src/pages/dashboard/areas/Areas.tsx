@@ -1,19 +1,64 @@
-import { useState } from 'react';
+import { FormEvent, useCallback, useEffect, useState } from 'react';
 import styles from './Areas.module.css';
 import { FaEye, FaPlus } from "react-icons/fa";
 import { ShowAreas } from './ShowAreas';
+import { AreasService } from '../../../services/areas/AreasService';
+import { IAreasService } from '../../../services/areas/types';
+import FormAreas from './components/FormAreas';
 
 
 
 
 
 function Areas() {
-
-  const [isOpen, setOpen] = useState<boolean>(false);
+  const [areas, setAreas] = useState<IAreasService[]>([]);
+  const [isShow, setShow] = useState<boolean>(false);
+  const [areaInput, setInputArea] = useState<string>('');
 
   const handleClick = () => {
-    setOpen(!isOpen);
+    setShow(!isShow);
   }
+
+  const handleDelete = async (id: string) => {
+    setAreas(areas.filter((areas => areas.id !== id)));
+    try {
+      await AreasService.Delete(id);
+    } catch (error: any) {
+      console.log('Erro ao eliminar uma área: ', error);
+    }
+
+  }
+
+  const handleEdit = (id: string | undefined) => {
+    console.log(id);
+  }
+
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const data = {
+      area: areaInput
+    }
+    try {
+      await AreasService.create(data);
+    } catch (error: any) {
+      console.log('Erro ao criar uma área: ', error);
+    }
+    setShow(!isShow);
+
+  }
+
+  const getAllAreas = useCallback(async () => {
+    try {
+      const result = await AreasService.getAll();
+      setAreas(result);
+    } catch (error: any) {
+      console.log('Erro ao carregar áreas: ', error);
+    }
+  }, [areas])
+
+  useEffect(() => {
+    getAllAreas();
+  }, []);
 
   return (
     <div className={`${styles.container} container`}>
@@ -28,10 +73,15 @@ function Areas() {
       </div>
 
       <div className="row">
-        {isOpen ? (
-            <p>Novo</p>
+        {isShow ? (
+          <FormAreas onSubmit={onSubmit}
+            setInputArea={setInputArea} />
         ) : (
-            <ShowAreas />
+          <ShowAreas
+            areas={areas}
+            handleDelete={handleDelete}
+            handleEdit={handleEdit}
+          />
         )
         }
       </div>
