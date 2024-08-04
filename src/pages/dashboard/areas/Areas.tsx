@@ -9,11 +9,11 @@ import FormAreas from './components/FormAreas';
 
 
 
-
 function Areas() {
   const [areas, setAreas] = useState<IAreasService[]>([]);
   const [isShow, setShow] = useState<boolean>(false);
   const [areaInput, setInputArea] = useState<string>('');
+
 
   const handleClick = () => {
     setShow(!isShow);
@@ -29,9 +29,6 @@ function Areas() {
 
   }
 
-  const handleEdit = (id: string | undefined) => {
-    console.log(id);
-  }
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -58,7 +55,7 @@ function Areas() {
 
   useEffect(() => {
     getAllAreas();
-  }, []);
+  }, [isShow]);
 
   return (
     <div className={`${styles.container} container`}>
@@ -74,13 +71,15 @@ function Areas() {
 
       <div className="row">
         {isShow ? (
-          <FormAreas onSubmit={onSubmit}
+          <FormAreas 
+            title={'Nova área'}
+            textButton={'Criar'}
+            onSubmit={onSubmit}
             setInputArea={setInputArea} />
         ) : (
           <ShowAreas
             areas={areas}
             handleDelete={handleDelete}
-            handleEdit={handleEdit}
           />
         )
         }

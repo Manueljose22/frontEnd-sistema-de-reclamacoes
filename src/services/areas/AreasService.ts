@@ -13,10 +13,29 @@ const getAll = async (): Promise<IAreasService[]> => {
     }
 }
 
+const getById = async (id?: string): Promise<IAreasService> =>{
+    try {
+        const {data} = await Api.get<IAreasService>(`/areas/${id}`);
+        return data;
+    } catch (error: any) {
+        throw new Error(error.response.data.message);
+    }
+}
+
 const create = async (dataSave: IAreaPost): Promise<IAreasService> => {
    
     try {
         const { data } = await Api.post<IAreasService>('/areas/create', dataSave )
+        return data;
+    } catch (error: any) {
+        throw new Error(error.response.data.message);
+    }
+}
+
+const update = async (dataSave:IAreaPost, id?: string ): Promise<IAreasService> => {
+   
+    try {
+        const { data } = await Api.put<IAreasService>(`/areas/${id}`, dataSave)
         return data;
     } catch (error: any) {
         throw new Error(error.response.data.message);
@@ -37,6 +56,8 @@ const Delete = async (id: string): Promise<void> =>{
 
 export const AreasService = {
     getAll,
+    getById,
     create,
+    update,
     Delete
 }

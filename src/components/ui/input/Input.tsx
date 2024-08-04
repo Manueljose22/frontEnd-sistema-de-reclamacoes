@@ -6,7 +6,7 @@ function Input({ type, OnChange, label, name, required, placeholder, value, mult
 
         <div className='mb-4'>
 
-            <label className="form-label " htmlFor={name}>{label}</label>
+            <label className="form-label text-dark m-0" htmlFor={name}>{label}</label>
             <input className="form-control"
                 type={type}
                 name={name}

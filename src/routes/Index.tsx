@@ -6,6 +6,7 @@ import { ShowComplaint } from "../pages/complaints/ShowComplaint";
 import { Dashboard } from "../pages/dashboard/Dashboard";
 import { Home } from "../pages/dashboard/Home";
 import { Areas } from "../pages/dashboard/areas/Areas";
+import { EditAreas } from "../pages/dashboard/areas/EditAreas";
 
 
 
@@ -22,7 +23,7 @@ function Index() {
         <Route path={'/admin/'} element={<Dashboard />}>
           <Route path={'/admin/home'} element={<Home />} />
           <Route path={'/admin/areas'} element={<Areas />} />
-          <Route path={'/admin/areas/:id'} element={<Areas />} />
+          <Route path={'/admin/areas/edit/:id'} element={<EditAreas />} />
         </Route>
 
         

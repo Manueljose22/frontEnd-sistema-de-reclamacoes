@@ -52,13 +52,12 @@ p{
 .btn-primary{
     background-color: var(--color-primary) !important;
     color: var(--color-dark);
-    font-weight: 500 !important;
-    
+    font-weight: 500 !important;   
 }
 
 .btn{
     border: none !important;
-    padding: .6rem !important;
+    /* padding: .6rem !important; */
 }
 
 .btn:hover{

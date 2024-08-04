@@ -7,7 +7,7 @@ import { Button } from "../../../../components/ui/button/Button";
 
 
 
-function FormAreas({onSubmit, setInputArea}: IFormAreas) {
+function FormAreas({onSubmit, setInputArea,title,textButton}: IFormAreas) {
 
     const handleOnchange = (e: ChangeEvent<HTMLInputElement>) => {
         setInputArea(e.target.value);
@@ -15,17 +15,19 @@ function FormAreas({onSubmit, setInputArea}: IFormAreas) {
     
   return (
     <div className="container">
-
-        <form onSubmit={onSubmit}>
+        <h4 className="my-3">{title}</h4>
+        <form onSubmit={onSubmit} className="d-flex align-items-center w-100">
             <Input 
-                label={'area'}
+                label={'Área'}
                 name={'area'}
                 required={true}
                 type={'text'}
                 OnChange={handleOnchange}
             />
 
-            <Button textBtn="Criar"/>
+            <div className="btns ms-2">
+            <Button textBtn={textButton}/>
+            </div>
         </form>
     </div>
   )
